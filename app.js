@@ -9,6 +9,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var readingRouter = require('./routes/readings');
+var gardenRouter = require('./routes/garden');
 //////////////////////////////////////////////////////
 
 var app = express();
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/reading', readingRouter);
+app.use('/gardens', gardenRouter);
 ///////////////////////////////////////////////////
 
 // catch 404 and forward to error handler
@@ -52,7 +54,7 @@ app.use(function(err, req, res, next) {
 //////CHECK EVERY 'time' SECONDS DATABASE FOR EVENT////////////////////
 
 var bodyResponse; //response from GET request
-var time = 10000; // 1s = 1000ms seconds, ideally every 30 minutes? or 1 hour?
+var time = 600000; // 1s = 1000ms seconds, ideally every 30 minutes? or 1 hour?
 
 var requestLoop = setInterval(function() {
     //console.log('pizza'); print pizza every 'time' seconds
