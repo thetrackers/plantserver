@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var readingRouter = require('./routes/readings');
 var gardenRouter = require('./routes/garden');
+var zoneRouter = require('./routes/zone');
 //////////////////////////////////////////////////////
 
 var app = express();
@@ -33,6 +34,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/reading', readingRouter);
 app.use('/gardens', gardenRouter);
+app.use('/zone', zoneRouter);
 ///////////////////////////////////////////////////
 
 // catch 404 and forward to error handler
@@ -82,7 +84,7 @@ var requestLoop = setInterval(function() {
 
                 var reading = readingArray[i]; // assign the user
 
-                if (reading.temperature > 110 ) { // send text message if event found, change 110 to THRESHOLD (high or low)
+                if (reading.temperature > 500 ) { // send text message if event found, change 110 to THRESHOLD (high or low)
 
                     console.log('RISK FOUND... sending text message!');
                     SendText(reading);
