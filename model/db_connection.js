@@ -1,6 +1,6 @@
 exports.config = {
     user: 'root',
-    password: 'ihaveswag11',
+    password: '',
     host: 'localhost',
     database: 'planttracker'
 };
